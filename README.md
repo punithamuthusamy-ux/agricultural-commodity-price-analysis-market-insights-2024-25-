@@ -195,8 +195,11 @@ Create a PR or reach out via LinkedIn for suggestions.
 ## 📬 Contact
 
 👤 **M. Punitha**
+
 📧 Email: (punithagvgvc@gmail.com)
+
 🔗 LinkedIn: (www.linkedin.com/in/punitha-muthusamy-6b46b2244)
+
 🐙 GitHub: (https://github.com/punithamuthusamy-ux)
 
 ---
