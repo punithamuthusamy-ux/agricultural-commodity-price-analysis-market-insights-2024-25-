@@ -15,6 +15,7 @@ A **Power BI Dashboard** designed to evaluate **agricultural commodity pricing t
 - Regional insights  
 
 ### 🎯 Key Goals:
+
 - 📈 Identify **stable vs. volatile commodities and markets**
 - 📍 Determine **top-performing districts & states** based on pricing
 - 📅 Analyse **season-wise & month-wise price patterns**
@@ -26,7 +27,7 @@ A **Power BI Dashboard** designed to evaluate **agricultural commodity pricing t
 
 | 📊 Source | Details |
 |-----------|----------|
-| 🏛 Govt. & Market Data | Daily Commodity Market Prices |
+| 🏛 Govt.Data | Daily Commodity Market Prices |
 | 📆 Timeline | 2024 – 2025 |
 | 🌍 Domain | Agricultural Commodity & Market Analytics |
 
@@ -79,23 +80,28 @@ A **Power BI Dashboard** designed to evaluate **agricultural commodity pricing t
 ## 🔗 7. Data Modelling & Key DAX
 
 ### 🧩 Star Schema
-```
 
-```
     Fact Table (Daily Price)
+    
               ↕
-```
+              
+* Commodity Dimension 
 
-Commodity Dimension • Market Dimension • Calendar Dimension • Grade Dimension
+* Market Dimension 
+
+* Calendar Dimension 
+
+*  Grade Dimension
 
 ````
 
 ### 📌 Important DAX Measures & Columns
-```DAX
+
 Average Modal Price = AVERAGE('Fact'[Model Price])
 Volatility Index = STDEV.P('Fact'[Model Price]) / AVERAGE('Fact'[Model Price])
 Stability Score = 1 / [Volatility Index]
 YTD Modal Price = TOTALYTD([Average Model Price], 'Calendar'[Date])
+
 ````
 
 ### 📌 Important Calculated Tables
@@ -213,7 +219,4 @@ Contributions are welcome!
 📢 *Let’s empower agriculture through data analytics!* 🌾📊🚀
 
 ```
-
  
-Just tell me what’s next! 😊
-```
