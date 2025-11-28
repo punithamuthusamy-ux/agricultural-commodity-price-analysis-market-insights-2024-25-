@@ -81,7 +81,7 @@ A **Power BI Dashboard** designed to evaluate **agricultural commodity pricing t
 
 ### 🧩 Star Schema
 
-    Fact Table (Daily Price)
+Fact Table (Daily Price)
     
               ↕
               
@@ -93,16 +93,15 @@ A **Power BI Dashboard** designed to evaluate **agricultural commodity pricing t
 
 *  Grade Dimension
 
-````
-
-### 📌 Important DAX Measures & Columns
+###📌 Important DAX Measures & Columns
 
 Average Modal Price = AVERAGE('Fact'[Model Price])
-Volatility Index = STDEV.P('Fact'[Model Price]) / AVERAGE('Fact'[Model Price])
-Stability Score = 1 / [Volatility Index]
-YTD Modal Price = TOTALYTD([Average Model Price], 'Calendar'[Date])
 
-````
+Volatility Index = STDEV.P('Fact'[Model Price]) / AVERAGE('Fact'[Model Price])
+
+Stability Score = 1 / [Volatility Index]
+
+YTD Modal Price = TOTALYTD([Average Model Price], 'Calendar'[Date])
 
 ### 📌 Important Calculated Tables
 
