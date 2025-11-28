@@ -1,221 +1,219 @@
  
-________________________________________
+# 🌾📉 Agricultural Commodity Price Analysis & Market Insights (2024–2025)
 
-🌾📉 Agricultural Commodity Price Analysis & Market Insights (2024–2025)
+A **Power BI Dashboard** designed to evaluate **agricultural commodity pricing trends, market performance, seasonality analysis, and volatility-based risk assessment** to support decision-making for **farmers, traders & policymakers.**
 
-________________________________________
+---
 
-🎯 1. Project Overview & Objective
-             🔍 This project focuses on analysing agricultural commodity price fluctuations, market performance, and seasonality trends using Power BI.
+## 🎯 1. Project Overview & Objective
 
-             📌 The objective is to enable farmers, traders, and policymakers to take data-driven decisions based on price volatility, commodity stability, and regional insights.
+🔍 This project focuses on analysing **agricultural commodity price fluctuations, market performance, and seasonality trends using Power BI.**
 
-🎯 Key Goals:
+📌 The objective is to enable **farmers, traders, and policymakers** to take **data-driven decisions** based on:
+- Price volatility  
+- Commodity stability  
+- Regional insights  
 
-	📈 Identify stable vs. volatile commodities and markets
-	📍 Determine top-performing districts & states based on pricing
-	📅 Analyse season-wise & month-wise price patterns
-	🏷 Support procurement, pricing & crop planning strategies
+### 🎯 Key Goals:
+- 📈 Identify **stable vs. volatile commodities and markets**
+- 📍 Determine **top-performing districts & states** based on pricing
+- 📅 Analyse **season-wise & month-wise price patterns**
+- 🏷 Support **procurement, pricing & crop planning strategies**
 
-________________________________________
+---
 
-🗂️ 2. Data Sources
+## 🗂️ 2. Data Sources
 
-📊 Source	Details
-🏛 Govt. & Market Data	Daily Commodity Market Prices
-📆 Timeline	2024 – 2025
-🌍 Domain	Agricultural Commodity & Market Analytics
-________________________________________
+| 📊 Source | Details |
+|-----------|----------|
+| 🏛 Govt. & Market Data | Daily Commodity Market Prices |
+| 📆 Timeline | 2024 – 2025 |
+| 🌍 Domain | Agricultural Commodity & Market Analytics |
 
-❓ 3. Problem Statement
+---
 
-💡 To derive market and commodity intelligence that helps in:
-	📉 Detecting price volatility and identifying stable commodities
-	🏪 Studying district & market-level performance
-	📆 Understanding seasonality pricing trends
-	🧠 Supporting demand forecasting & profitable crop planning
-________________________________________
+## ❓ 3. Problem Statement
 
-📄 4. Attribute (Column / Features) Details
+💡 To derive **market and commodity intelligence** that helps in:
+- 📉 Detecting price volatility & identifying **stable commodities**
+- 🏪 Studying **district & market-level performance**
+- 📆 Understanding **seasonality pricing trends**
+- 🧠 Supporting **demand forecasting & profitable crop planning**
 
-🔤 Field	🧾 Type	📌 Description
-Commodity Name	Text	Crop/Commodity Name
-Market Name	Text	Marketplace/District
-Date	Date	Transaction Date
-Modal Price	Numeric	Average Market Price
-Min & Max Price	Numeric	Daily Price Range
-Grade	Category	Premium / Local / Medium…
-Season	Category	Monsoon / Winter / Autumn
-________________________________________
+---
 
-🛠️ 5. Tools & Technologies
+## 📄 4. Attribute (Column / Features) Details
 
-	📊 Power BI → Visual Analytics, DAX, Modelling
-	📚 Power Query → Cleaning & Transformation
-	🔢 DAX → Dynamic Insights & Measures
-	🧠 Data Modelling → Star Schema with Fact & Dimensions
-________________________________________
+| 🔤 Field | 🧾 Type | 📌 Description |
+|----------|----------|----------------|
+| Commodity Name | Text | Crop/Commodity Name |
+| Market Name | Text | Marketplace/District |
+| Date | Date | Transaction Date |
+| Modal Price | Numeric | Average Market Price |
+| Min & Max Price | Numeric | Daily Price Range |
+| Grade | Category | Premium / Local / Medium |
+| Season | Category | Monsoon / Winter / Autumn |
 
-🧹 6. Data Pre-Processing Summary
+---
 
-	Removed invalid & null values
-	Changed Date Type
-	Standardized pricing formats
-	Renamed Columns
-	Created Calendar, Commodity & Market dimension tables
-	 Feature Engineering (Volatility Index, Stability Score etc.)
-________________________________________
+## 🛠️ 5. Tools & Technologies
 
+- 📊 **Power BI** → Visual Analytics, Dashboards, DAX  
+- 📚 **Power Query** → Data Cleaning & Transformation  
+- 🔢 **DAX** → Measures & KPI Calculations  
+- 🧠 **Data Modelling** → Star Schema (Fact & Dimensions)
 
-🔗 7. Data Modelling & Key DAX
+---
 
-🧩 Star Schema Used
+## 🧹 6. Data Pre-Processing Summary
 
-Fact Table (Daily Price)
-  ↕
-Commodity Dimension
-Market Dimension
-Calendar Dimension
-Grade Dimension
+✔ Removed invalid & null values  
+✔ Changed date format to Date type  
+✔ Standardized pricing formats  
+✔ Renamed columns for consistency  
+✔ Created **Calendar, Commodity & Market** dimension tables  
+✔ Engineered metrics like **Volatility Index, Stability Score**
 
-📌 Important DAX Measures & Columns
-Average Modal Price = AVERAGE ('Fact'[Model Price])
+---
+
+## 🔗 7. Data Modelling & Key DAX
+
+### 🧩 Star Schema
+```
+
+```
+    Fact Table (Daily Price)
+              ↕
+```
+
+Commodity Dimension • Market Dimension • Calendar Dimension • Grade Dimension
+
+````
+
+### 📌 Important DAX Measures & Columns
+```DAX
+Average Modal Price = AVERAGE('Fact'[Model Price])
+Volatility Index = STDEV.P('Fact'[Model Price]) / AVERAGE('Fact'[Model Price])
 Stability Score = 1 / [Volatility Index]
-Volatility Index = STDEV.P('Fact'[Model Price]) / AVERAGE ('Fact'[Model Price])
-YTD Modal Price = TOTALYTD ([Average Model Price], 'Calendar'[Date])
+YTD Modal Price = TOTALYTD([Average Model Price], 'Calendar'[Date])
+````
 
-📌 Important Calculated tables
-	Calander Table
-	Measures Table
+### 📌 Important Calculated Tables
 
-________________________________________
+* ➤ Calendar Table
+* ➤ Measures Table
 
-📊 8. Analysis & Visual Insights
+---
 
-📦 Dashboard 1 – Commodity Analysis
+## 📊 8. Analysis & Visual Insights
 
-🔹 Top Stable Commodities
-           🥇 Bitter Gourd (99.52) | 🥈 Mint (71.18) | 🥉 Ash gourd (67.22)
+### 📦 Dashboard 1 – Commodity Analysis
 
-🔹 Commodity Grade Preference
-       🏆 Premium: 76.6% (755 records) → Highly demanded
-         📍 Local: 105, Medium & Non-Premium minimal
+* 🥇 **Top Stable Commodities:** Bitter Gourd (99.52), Mint (71.18), Ash Gourd (67.22)
+* 🏆 **Grade Preference:** Premium – 76.6% (755 records)
+* 📉 Low Volatility: Bitter Gourd → Highly reliable
+* 💰 **Min Price:** Bitter Gourd ₹2.2K | Mint ₹2.1K | Amaranthus ₹2K
+* 🌾 **District-Wise Max Price:**
 
-🔹 Volatility Trend
-           📉 Bitter Gourd (Low volatility) → Highly reliable
-           📈 Some vegetables show high fluctuation
+| Commodity | District  | 💵 Max Price |
+| --------- | --------- | ------------ |
+| Carrot    | Alappuzha | ₹2350        |
+| Ash Gourd | Palakkad  | ₹1600        |
+| Brinjal   | Nagpur    | ₹1820        |
 
-🔹 Min Price By Commodity
-        🥇 Bitter Gourd ₹2.2K | Mint ₹2.1K | Amaranthus ₹2K
+---
 
-🔹 District-Wise Max Price
+### 🏪 Dashboard 2 – Market Analysis
 
-🌾 Commodity	🏙 District	💵 Max Price
-Carrot Alappuzha	₹2350
-Ash gourd	Palakkad	₹1600
-Brinjal	Nagpur	₹1820
+| 🏆 Rank | Market | Stability Score |
+| ------- | ------ | --------------- |
+| 🥇 1    | Surat  | 48.92           |
+| 🥈 2    | Rampur | 42.78           |
+| 🥉 3    | Godhra | 33.41           |
 
-________________________________________
+📌 Additional Insights:
 
-🏪 Dashboard 2 – Market Analysis
+* 🔝 **State-wise Avg Min Price:** Tamil Nadu (11.48%) | Himachal (10.61%) | Rajasthan (10.12%)
+* 📈 **YTD Price:** Punjab ₹0.3M | Haryana ₹0.2M | Gujarat ₹0.2M
+* 💹 **Top Markets by Price:** Surat ₹121K | Rampur ₹98K | Godhra ₹80K
 
-🔹 Top Stable Markets
+---
 
-🏆 Rank	Market	Stability
-🥇 1	Surat	48.92
-🥈 2	Rampur	42.78
-🥉 3	Godhra	33.41
+### 📅 Dashboard 3 – Calendar Insights
 
-🔹 State Wise Average Min Price
-	🔝 Tamil Nadu (11.48%) | Himachal (10.61%) | Rajasthan (10.12%)
+* 📈 **September highest Avg Model Price – ₹1.76K**
+* 🗓 **Jan–Aug stable (~₹1.51K)**
+* 🌧 **Monsoon & Winter show peak prices**
+* 🍂 Autumn slightly lower
+* ⚠ **Most Volatile State:** Maharashtra (99.41)
 
-🔹 State-Wise YTD Price
-	📈 Punjab: ₹0.3M | Haryana: ₹0.2M | Gujarat: ₹0.2M
+| State       | 📉 Volatility Index | 🔎 Risk |
+| ----------- | ------------------- | ------- |
+| Maharashtra | 99.41               | 😬 High |
+| Kerala      | -8.12               | Low     |
+| Punjab      | -5.22               | Low     |
 
-🔹 High Price Markets
-	Surat ₹121K | Rampur ₹98K | Godhra ₹80K
-________________________________________
+⭐ **Price Contribution by Grade:** Premium → **62.16%**
 
-📅 Dashboard 3 – Calendar Analysis
+---
 
-🔹 Month-Wise Average Model Price
+## 💡 9. Insights (Business & Strategy)
 
-	📈 September highest – ₹1.76K
-	📉 January–August stable (~₹1.51K)
+### 📊 Descriptive
 
-🔹 Season Wise Max Price
+✔ Bitter Gourd is most stable & high-priced
+✔ Surat & Rampur are top-performing markets
 
-	🌧 Monsoon & Winter peak
-	🍂 Autumn slightly lower
+### 🔍 Diagnostic
 
-🔹 State Wise Volatility (By Seas
-on)
-
-State	📉 Volatility Index
-Maharashtra	99.41 😬 (High Risk)
-Kerala	-8.12
-Punjab	-5.22
-
-🔹 Grade Wise Price Contribution
-
-	⭐ Premium → 62.16%
-	Medium & Local → Moderate
-
-________________________________________
-
-💡 9. Insights (Business & Strategy)
-
-📊 Descriptive
-✔ Bitter gourd is most stable & high-priced
-✔ Surat & Rampur are best-selling markets
-
-🔍 Diagnostic
-⚠ Maharashtra shows extreme volatility, requiring risk measures
+⚠ Maharashtra exhibits **high volatility**
 ⚠ Seasonal price variation impacts profitability
 
-🔮 Predictive
-📈 Monsoon & Winter expected to remain high revenue seasons
-📌 Premium grade likely to dominate next cycle
+### 🔮 Predictive
 
-📝 Prescriptive
-🛒 Promote Premium grade trading
-📍 Expand distribution in Surat, Rampur, Godhra
-🌱 Grow low volatility commodities like Bitter Gourd, Mint
-🛑 Avoid heavy supply during highly volatile months
+📈 Monsoon & Winter expected to sustain high price trends
+📌 Premium grade likely to dominate
 
-________________________________________
+### 📝 Prescriptive
 
-🔚 10. Conclusion
-✔ Successfully developed an end-to-end Power BI solution
-✔ Enabled clear identification of profitable commodities, markets & seasons
-✔ Empowered decision-makers with risk-based strategies
-✔ Integration of seasonality, price, and volatility metrics is a unique highlight
- 
+* 🛒 Promote **Premium Grade** trading
+* 📍 Expand distribution in **Surat, Rampur, Godhra**
+* 🌱 Focus on **low volatility commodities** (Bitter Gourd, Mint)
+* 🚫 Avoid over-supply in highly volatile months
+
+---
+
+## 🔚 10. Conclusion
+
+✔ Developed a complete **Power BI analytical solution**
+✔ Identified **profitable commodities, markets & seasons**
+✔ Enabled **data-driven agricultural decisions**
+✔ Highlighted **seasonality & volatility in pricing models**
+
 ---
 
 ## 🤝 Contribution & Feedback
 
 Contributions are welcome!
-Create a PR or reach out via LinkedIn for suggestions.
+📌 Feel free to create a pull request or share suggestions on LinkedIn!
 
 ---
 
 ## 📬 Author
 
 👤 **M. Punitha**
-
-Aspiring Data Analyst
-
-📧 Email: (punithagvgvc@gmail.com)
-
-🔗 LinkedIn: (www.linkedin.com/in/punitha-muthusamy-6b46b2244)
-
-🐙 GitHub: (https://github.com/punithamuthusamy-ux)
+💼 *Aspiring Data Analyst*
+📧 **Email:**   *[punithagvgvc@gmail.com](mailto:punithagvgvc@gmail.com)*
+🔗 **LinkedIn:** [www.linkedin.com/in/punitha-muthusamy-6b46b2244](http://www.linkedin.com/in/punitha-muthusamy-6b46b2244)
+🐙 **GitHub:** github.com/punithamuthusamy-ux
 
 ---
 
-⭐ *If you found this useful, consider starring the repo!*
-📢 *Let’s empower agriculture through data analytics!*
+⭐ *If you found this useful, don't forget to star the repository!*
+📢 *Let’s empower agriculture through data analytics!* 🌾📊🚀
 
----
+```
 
+ 
+Just tell me what’s next! 😊
+```
